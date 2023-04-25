@@ -7,7 +7,7 @@ import pygame
 #pygame tutorial used: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html
 # gameboard initialization
 
-# create main function to control overall gameplay
+# create main function to control overall gameplay.
 def main():
     # pygame module initialization
     pygame.init()
