@@ -23,7 +23,7 @@ def main():
     # create variable to control the main loop
     running = True
 
-    # main loop
+    # main loop.
     while running:
         for event in pygame.event.get():
             # if an event is of QUIT type, main loop closes (game ends)
