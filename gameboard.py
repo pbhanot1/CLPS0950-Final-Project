@@ -1,5 +1,5 @@
 # Snake Game Final Project - gameboard
-# edited 04.24.23 by Priya Bhanot
+# edited 04.26.23 by Priya Bhanot
 # this file creates game initialization function
 #pygame tutorials used: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html, https://pyga.me/docs/
 
