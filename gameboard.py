@@ -34,7 +34,7 @@ if display == True:
     instructions_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((280, 280), (150, 30)), text='Instructions', manager=manager)
     start_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((280, 320), (150, 30)), text='Start', manager=manager)
 
-# main game loop
+# main game loop !
 while running:
     #UI timer
     time_delta = clock.tick(60)/1000.0
