@@ -18,17 +18,28 @@ clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200,900))
 
-# characters
-corgi = pygame.image.load('corgi.png')
-screen.blit(corgi, (100,100))
+# create Menu function
+menu_init = True
+def create_menu():
+    if menu_init == True:
+        def back_button():
+            menu.mainloop(screen)
+        def the_instructions():
+            instructions = pygame_menu.Menu('Instructions', 800, 600, theme=pygame_menu.themes.THEME_SOLARIZED)
+            instruction_img = pygame.image.load("instructions.png")
+            instructions.add.surface(instruction_img)
+            instructions.add.button('Back to Menu', back_button)
+            instructions.mainloop(screen)
 
-husky = pygame.image.load('husky.png')
-screen.blit(husky, (950,100))
-poodle = pygame.image.load('poodle.png')
-screen.blit(poodle, (600,450))
-mavi = pygame.image.load('mavi.png')
-screen.blit(mavi, (300,800))
+        menu = pygame_menu.Menu('Dog Park!', 600, 400, theme=pygame_menu.themes.THEME_SOLARIZED)
+        logo = pygame.image.load("logo.png")
+        menu.add.surface(logo)
+        menu.add.button('Start', pygame_menu.events.CLOSE)
+        menu.add.button('Instructions', the_instructions)
+        menu.add.button('Quit Game', pygame_menu.events.EXIT)
+        menu.mainloop(screen)
 
+create_menu()
 # create variable to control the main loop
 running = True
 
