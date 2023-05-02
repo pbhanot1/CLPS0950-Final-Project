@@ -13,21 +13,45 @@ pygame.init()
 # game window setup: name, background color, animation frame rate, font, UI manager
 pygame.display.set_caption("Dog Park Game")
 screen = pygame.display.set_mode((1200,900))
-screen.fill((120, 170, 20))
+background=screen.fill((120, 170, 20))
 clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200,900))
 
 # characters
-corgi = pygame.image.load('corgi.png')
-screen.blit(corgi, (100,100))
-
 husky = pygame.image.load('husky.png')
 screen.blit(husky, (950,100))
 poodle = pygame.image.load('poodle.png')
 screen.blit(poodle, (600,450))
 mavi = pygame.image.load('mavi.png')
 screen.blit(mavi, (300,800))
+
+corgi = pygame.image.load('corgi.png')
+x=100
+y=100
+Player=screen.blit(corgi, (x,y))
+run=True
+while run:
+    screen.fill((120, 170, 20))
+    pygame.time.delay(10)
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            run=False
+    keys=pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        y-=10
+    if keys[pygame.K_DOWN]:
+        y+=10
+    if keys[pygame.K_LEFT]:
+        x-=10
+    if keys[pygame.K_RIGHT]:
+        x+=10
+    screen.blit(husky, (950, 100))
+    screen.blit(poodle, (600, 450))
+    screen.blit(mavi, (300, 800))
+    Player=screen.blit(corgi,(x,y))
+    pygame.display.update()
+
 
 # create variable to control the main loop
 running = True
