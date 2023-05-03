@@ -38,7 +38,7 @@ def create_menu():
     menu.add.button('Instructions', the_instructions)
     menu.add.button('Quit Game', pygame_menu.events.EXIT)
     menu.mainloop(screen)
-create_menu()
+#create_menu()
 
 # characters
 husky = pygame.image.load('husky.png')
@@ -47,33 +47,31 @@ poodle = pygame.image.load('poodle.png')
 screen.blit(poodle, (600,450))
 mavi = pygame.image.load('mavi.png')
 screen.blit(mavi, (300,800))
-
 corgi = pygame.image.load('corgi.png')
-x=100
-y=100
-Player=screen.blit(corgi, (x,y))
-run=True
-while run:
-    screen.fill((120, 170, 20))
-    pygame.time.delay(10)
-    for event in pygame.event.get():
-        if event.type==pygame.QUIT:
-            run=False
-    keys=pygame.key.get_pressed()
-    if keys[pygame.K_UP]:
-        y-=10
-    if keys[pygame.K_DOWN]:
-        y+=10
-    if keys[pygame.K_LEFT]:
-        x-=10
-    if keys[pygame.K_RIGHT]:
-        x+=10
-    screen.blit(husky, (950, 100))
-    screen.blit(poodle, (600, 450))
-    screen.blit(mavi, (300, 800))
-    Player=screen.blit(corgi,(x,y))
-    pygame.display.update()
-
+def corgi_moves(x,y):
+    Player=screen.blit(corgi, (x,y))
+    run=True
+    while run:
+        screen.fill((120, 170, 20))
+        pygame.time.delay(10)
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                run=False
+        keys=pygame.key.get_pressed()
+        if keys[pygame.K_UP]:
+            y-=10
+        if keys[pygame.K_DOWN]:
+            y+=10
+        if keys[pygame.K_LEFT]:
+            x-=10
+        if keys[pygame.K_RIGHT]:
+            x+=10
+        screen.blit(husky, (950, 100))
+        screen.blit(poodle, (600, 450))
+        screen.blit(mavi, (300, 800))
+        Player=screen.blit(corgi,(x,y))
+        pygame.display.update()
+corgi_moves(100,100)
 
 # create variable to control the main loop
 running = True
@@ -93,6 +91,3 @@ while running:
 
     pygame.display.update()
     clock.tick(60)
-
-
-
