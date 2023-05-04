@@ -17,11 +17,12 @@ background=screen.fill((120, 170, 20))
 clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200,900))
+game_menu=True
 
 # create Menu function
 def create_menu():
     def start_game():
-        pass
+        game_start=True
     def back_button():
             menu.mainloop(screen)
     def the_instructions():
@@ -71,7 +72,7 @@ def corgi_moves(x,y):
         screen.blit(mavi, (300, 800))
         Player=screen.blit(corgi,(x,y))
         pygame.display.update()
-corgi_moves(100,100)
+#corgi_moves(100,100)
 
 # create variable to control the main loop
 running = True
@@ -84,10 +85,15 @@ while running:
         # if an event is of QUIT type, main loop closes (game ends)
         if event.type == pygame.QUIT:
             running = False
+        if game_menu==True:
+            create_menu()
+        if game_start==True:
+            corgi_moves(100,100)
         # UI manager functions setup
         manager.process_events(event)
-
     manager.update(time_delta)
-
     pygame.display.update()
     clock.tick(60)
+    #if game_state=='menu':
+        #create_menu()
+    #if game_state==''
