@@ -3,7 +3,7 @@
 # pygame tutorials used: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html, https://pyga.me/docs/
 
 # import libraries
-import pygame
+import pygame, sys
 import pygame_menu
 import pygame_gui
 
@@ -18,8 +18,12 @@ game = False
 # create Menu function
 def create_menu():
     def start_game():
-        pygame.display.quit
+        sys.exit(menu_screen)
         game = True
+        screen=pygame.display.set_mode((1200, 900))
+        background = screen.fill((120, 170, 20))
+        clock = pygame.time.Clock()
+        font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
     def back_button():
             menu.mainloop(menu_screen)
     def the_instructions():
@@ -46,7 +50,7 @@ else:
     clock = pygame.time.Clock()
     font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
     manager = pygame_gui.UIManager((1200, 900))
-    # characters
+    #characters
     husky = pygame.image.load('husky.png')
     screen.blit(husky, (950,100))
     poodle = pygame.image.load('poodle.png')
