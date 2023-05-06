@@ -9,7 +9,7 @@ import pygame_gui
 import Tokens
 
 
-#initialize pygame
+#initialize pygame !
 pygame.init()
 
 # game window setup: name, background color, animation frame rate, font, UI manager
