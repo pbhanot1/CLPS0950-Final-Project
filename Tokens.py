@@ -7,7 +7,7 @@ screen = pygame.display.set_mode((1200, 900))
 class Food(object):
 
     def __init__(self,food_screen):
-        self.image= pygame.image.load("treatbone.png").convert()
+        self.image= pygame.transform.scale(pygame.image.load("treatbone.png").convert(),(40,20))
         self.food_screen=food_screen
         self.eaten = False
         self.food_spawn()
