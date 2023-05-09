@@ -17,7 +17,7 @@ pygame.display.set_caption("Dog Park Game")
 menu_screen = pygame.display.set_mode((1200,900))
 game = False
 
-# create Menu function
+# gameboard initialization and setup
 
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
@@ -33,31 +33,8 @@ screen.blit(poodle, (600,450))
 mavi = pygame.image.load('mavi.png')
 screen.blit(mavi, (300,800))
 corgi = pygame.image.load('corgi.png')
-def corgi_moves(x,y):
-    Player=screen.blit(corgi, (x,y))
-    run=True
-    while run:
-        screen.fill((120, 170, 20))
-        pygame.time.delay(10)
-        for event in pygame.event.get():
-            if event.type==pygame.QUIT:
-                run=False
-        keys=pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
-            y-=10
-        if keys[pygame.K_DOWN]:
-            y+=10
-        if keys[pygame.K_LEFT]:
-            x-=10
-        if keys[pygame.K_RIGHT]:
-            x+=10
-        screen.blit(husky, (950, 100))
-        screen.blit(poodle, (600, 450))
-        screen.blit(mavi, (300, 800))
-        Player=screen.blit(corgi,(x,y))
-        pygame.display.update()
-#corgi_moves(100,100)
 
+treat=Tokens.Food(screen)
 # create variable to control the main loop
 def main():
     running = True
@@ -91,6 +68,7 @@ def main():
         screen.blit(poodle, (600, 450))
         screen.blit(mavi, (300, 800))
         Player = screen.blit(corgi, (x, y))
+        treat.food_drawing(screen)
         pygame.display.update()
 
         manager.update(time_delta)
