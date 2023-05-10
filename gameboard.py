@@ -33,13 +33,16 @@ screen.blit(poodle, (600,450))
 mavi = pygame.image.load('mavi.png')
 screen.blit(mavi, (300,800))
 corgi = pygame.image.load('corgi.png')
+treat = Tokens.Food(screen)
 
-treat=Tokens.Food(screen)
 # create variable to control the main loop
 def main():
     running = True
     x= 100
     y= 100
+    global corgi_posx
+    global corgi_posy
+    corgi_mask = pygame.mask.from_surface(corgi)
     # main game function
     while running:
         #UI timer
@@ -67,10 +70,12 @@ def main():
         screen.blit(husky, (950, 100))
         screen.blit(poodle, (600, 450))
         screen.blit(mavi, (300, 800))
-        Player = screen.blit(corgi, (x, y))
+        corgi_posx = x
+        corgi_posy = y
+        screen.blit(corgi, (x, y))
         treat.food_drawing(screen)
+        treat.collision(corgi_mask, corgi_posx, corgi_posy)
         pygame.display.update()
-
         manager.update(time_delta)
         pygame.display.update()
         clock.tick(60)
