@@ -1,10 +1,15 @@
+# import libraries
 import pygame, sys
 import pygame_menu
 import random
 import gameboard
 import pygame_gui
+
+#initialize screen
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
+font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
+# object-oriented programming for treat token
 class Food(object):
 # tutorial used for counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game
     def __init__(self,food_screen):
@@ -14,6 +19,7 @@ class Food(object):
       #  self.food_spawn()
         self.x = 200
         self.y = 200
+
 
   #  def food_spawn(self):
    #     self.x = random.randrange(0, 800, 1)
@@ -32,7 +38,7 @@ class Food(object):
             #pygame.display.flip()
 
 
-    def collision(self, corgi_mask, corgi_posx, corgi_posy):
+    def collision(self, corgi_mask, corgi_posx, corgi_posy, counter):
         # creates a treat mask (ignores transparent pixels)
         treat_mask = pygame.mask.from_surface(self.image)
 
@@ -47,3 +53,5 @@ class Food(object):
             self.y = random.randint(0,700)
             self.food_screen.blit(self.image, (self.x, self.y))
             pygame.display.flip()
+            counter += 1
+            print(counter)

@@ -42,6 +42,7 @@ def main():
     y= 100
     global corgi_posx
     global corgi_posy
+
     corgi_mask = pygame.mask.from_surface(corgi)
     # main game function
     while running:
@@ -67,6 +68,7 @@ def main():
             x -= 10
         if keys[pygame.K_RIGHT]:
             x += 10
+
         screen.blit(husky, (950, 100))
         screen.blit(poodle, (600, 450))
         screen.blit(mavi, (300, 800))
@@ -74,7 +76,9 @@ def main():
         corgi_posy = y
         screen.blit(corgi, (x, y))
         treat.food_drawing(screen)
-        treat.collision(corgi_mask, corgi_posx, corgi_posy)
+        treat.collision(corgi_mask, corgi_posx, corgi_posy,counter)
+        counter_text = font.render(f'Treats Collected: {counter}',True,(255,255,255))
+        screen.blit(counter_text,(10,10))
         pygame.display.update()
         manager.update(time_delta)
         pygame.display.update()
