@@ -11,7 +11,7 @@ screen = pygame.display.set_mode((1200, 900))
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 # object-oriented programming for treat token
 class Food(object):
-# tutorial used for counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game
+# tutorial used for counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game, https://www.makeuseof.com/pygame-game-scores-displaying-updating/
     def __init__(self,food_screen):
         self.image= pygame.transform.scale(pygame.image.load("treatbone.png").convert(),(40,20))
         self.food_screen=food_screen

@@ -42,7 +42,8 @@ def main():
     y= 100
     global corgi_posx
     global corgi_posy
-
+    global counter
+    counter =0
     corgi_mask = pygame.mask.from_surface(corgi)
     # main game function
     while running:
