@@ -26,14 +26,11 @@ clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200, 900))
 #characters
-husky = pygame.image.load('husky.png')
-screen.blit(husky, (950,100))
-poodle = pygame.image.load('poodle.png')
-screen.blit(poodle, (600,450))
-mavi = pygame.image.load('mavi.png')
-screen.blit(mavi, (300,800))
 corgi = pygame.image.load('corgi.png')
 treat = Tokens.Food(screen)
+husky = Tokens.Husky(screen)
+poodle = Tokens.Poodle(screen)
+chow = Tokens.Chow(screen)
 
 # create variable to control the main loop
 def main():
@@ -42,8 +39,8 @@ def main():
     y= 100
     global corgi_posx
     global corgi_posy
-    global counter
-    counter =0
+
+    counter = 0
     corgi_mask = pygame.mask.from_surface(corgi)
     # main game function
     while running:
@@ -69,18 +66,21 @@ def main():
             x -= 10
         if keys[pygame.K_RIGHT]:
             x += 10
+        if keys[pygame.K_SPACE]:
+            counter = husky.collision(corgi_mask, corgi_posx, corgi_posy, counter)
+            counter = poodle.collision(corgi_mask, corgi_posx, corgi_posy, counter)
+            counter = chow.collision(corgi_mask, corgi_posx, corgi_posy, counter)
 
-        screen.blit(husky, (950, 100))
-        screen.blit(poodle, (600, 450))
-        screen.blit(mavi, (300, 800))
         corgi_posx = x
         corgi_posy = y
         screen.blit(corgi, (x, y))
+        husky.husky_drawing(screen)
+        poodle.poodle_drawing(screen)
+        chow.chow_drawing(screen)
         treat.food_drawing(screen)
-        treat.collision(corgi_mask, corgi_posx, corgi_posy,counter)
+        counter = treat.collision(corgi_mask, corgi_posx, corgi_posy,counter)
         counter_text = font.render(f'Treats Collected: {counter}',True,(255,255,255))
         screen.blit(counter_text,(10,10))
-        pygame.display.update()
         manager.update(time_delta)
         pygame.display.update()
         clock.tick(60)
