@@ -69,7 +69,7 @@ class Husky():
         husky_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(husky_mask, offset)  # point of intersection
@@ -99,7 +99,7 @@ class Poodle():
         poodle_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(poodle_mask, offset)  # point of intersection
@@ -129,7 +129,7 @@ class Chow():
         chow_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(chow_mask, offset)  # point of intersection
