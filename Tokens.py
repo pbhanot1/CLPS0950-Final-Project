@@ -3,6 +3,7 @@ import pygame, sys
 import pygame_menu
 import random
 import gameboard
+import time
 import pygame_gui
 
 #initialize screen
@@ -69,7 +70,7 @@ class Husky():
         husky_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(husky_mask, offset)  # point of intersection
@@ -99,7 +100,7 @@ class Poodle():
         poodle_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(poodle_mask, offset)  # point of intersection
@@ -129,17 +130,16 @@ class Chow():
         chow_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
+        offset = (int(self.x - corgi_posx) - 40, int(self.y - corgi_posy)-40)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(chow_mask, offset)  # point of intersection
 
         if poi != None:
-            # pop up comes
-            if counter >= 2:
-                counter = counter - 2
+            if counter >= 5:
+                counter = counter - 5
                 self.image = pygame.image.load('mavifriend.png')
-                #pop up message thx im ur friend
+                # pop up message thx im ur friend
             return counter
         else:
             return counter
