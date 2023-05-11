@@ -31,6 +31,13 @@ treat = Tokens.Food(screen)
 husky = Tokens.Husky(screen)
 poodle = Tokens.Poodle(screen)
 chow = Tokens.Chow(screen)
+confirmation_dialog = pygame_gui.windows.UIConfirmationDialog(
+    rect=pygame.Rect((275, 200), (260, 200)),
+    manager=manager,
+    window_title='Confirmation',
+    action_long_desc='I need 3 treats to be your friend.',
+    action_short_name='OK',
+    blocking=True)
 
 # create variable to control the main loop
 def main():
@@ -52,11 +59,11 @@ def main():
                 running = False
             # UI manager functions setup
             manager.process_events(event)
+            if event.type == pygame.USEREVENT:
+                if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+                    confirmation_dialog.kill()
         screen.fill((120, 170, 20))
         pygame.time.delay(10)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
             y -= 10
@@ -66,11 +73,12 @@ def main():
             x -= 10
         if keys[pygame.K_RIGHT]:
             x += 10
+        if keys[pygame.K_RETURN]:
+            husky.popup(corgi_mask, corgi_posx, corgi_posy)
         if keys[pygame.K_SPACE]:
             counter = husky.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = poodle.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = chow.collision(corgi_mask, corgi_posx, corgi_posy, counter)
-
         corgi_posx = x
         corgi_posy = y
         screen.blit(corgi, (x, y))

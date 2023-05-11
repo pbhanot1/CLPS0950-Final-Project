@@ -9,6 +9,8 @@ import pygame_gui
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
+manager = pygame_gui.UIManager((800, 600))
+clock = pygame.time.Clock()
 # object-oriented programming for treat token
 class Food(object):
 # tutorial used for counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game, https://www.makeuseof.com/pygame-game-scores-displaying-updating/
@@ -19,21 +21,8 @@ class Food(object):
         self.x = 200
         self.y = 200
 
-
-  #  def food_spawn(self):
-   #     self.x = random.randrange(0, 800, 1)
-   #     self.y = random.randrange(0, 800, 1)
-
     def food_drawing(self,win):
         self.food_screen.blit(self.image, (self.x, self.y))
-
-    #def move(self,win, corgi_posx, corgi_posy):
-        #if self.is_in_range(self.x, corgi_posx - 20, corgi_posy + 20) and self.is_in_range(self.y, corgi_posy - 20, corgi_posy + 20):
-            #print('collide')
-            #self.x = random.randint(0,1200)*40
-            #self.y = random.randint(0,900)*20
-            #self.food_screen.blit(self.image, (self.x, self.y))
-            #pygame.display.flip()
 
 
     def collision(self, corgi_mask, corgi_posx, corgi_posy, counter):
@@ -65,13 +54,8 @@ class Husky():
     def husky_drawing(self,win):
         self.husky_screen.blit(self.image, (self.x, self.y))
     def collision(self, corgi_mask, corgi_posx, corgi_posy, counter):
-        # creates a treat mask (ignores transparent pixels)
         husky_mask = pygame.mask.from_surface(self.image)
-
-        # checks the offset position of the treat relative to the dog
         offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy)+10)
-
-        # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(husky_mask, offset)  # point of intersection
 
         if poi != None:
@@ -83,6 +67,33 @@ class Husky():
             return counter
         else:
             return counter
+
+    #def popup(self, corgi_mask, corgi_posy, corgi_posx):
+        #husky_mask = pygame.mask.from_surface(self.image)
+       # offset = (int(self.x - corgi_posx) + 10, int(self.y - corgi_posy) + 10)
+        #poi = corgi_mask.overlap(husky_mask, offset)  # point of intersection
+
+        #if poi != None:
+         #   confirmation_dialog = pygame_gui.windows.UIConfirmationDialog(
+          #      rect=pygame.Rect((275, 200), (250, 150)),
+          #      manager=manager,
+           #     window_title='Confirmation',
+            #    action_long_desc='I need 3 treats to be your friend.',
+             #   action_short_name='OK',
+              #  blocking=False)
+          #  is_running = True
+           # while is_running:
+            #    time_delta = clock.tick(60) / 1000.0
+
+             #   for event in pygame.event.get():
+              #      if event.type == pygame.QUIT:
+               #         is_running = False
+
+                #    manager.process_events(event)
+
+                 #   if event.type == pygame.USEREVENT:
+                  #      if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                   #         confirmation_dialog.kill()
 
 class Poodle():
     def __init__(self, poodle_screen):
