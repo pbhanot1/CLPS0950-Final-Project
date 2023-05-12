@@ -26,6 +26,15 @@ Necessary toolboxes are detailed below.
 # Work Timelog: https://docs.google.com/spreadsheets/d/1QwlTnTw7et1oqVvzcRccjEKFMuBTa5N2ZQoQcbAVFrs/edit?usp=sharing
 # Project Presentation: https://docs.google.com/presentation/d/1VQFWeqGcWRmpjCHftHlRXYx681kt73hGTC7nw6n7WsY/edit#slide=id.p
 
+# Tutorials Used To Write Code:
+    - General intro to pygame/pygame_gui: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html, https://pyga.me/docs/, https://pygame-gui.readthedocs.io/en/latest/#:~:text=Pygame%20GUI%20is%20a%20module,Pygame%202%20and%20Python%203
+    - Menu display (using pygame_menu): https://pygame-menu.readthedocs.io/en/4.4.2/, https://www.geeksforgeeks.org/creating-start-menu-in-pygame/#
+    - Treat Counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game, https://www.makeuseof.com/pygame-game-scores-displaying-updating/ 
+    - Avatar Movement: https://www.pygame.org/docs/tut/MoveIt.html#:~:text=To%20position%20an%20object%20on,coordinate%20(0%2C%200), https://pythonprogramming.net/pygame-tutorial-moving-images-key-input/
+    - Sound: https://www.youtube.com/watch?v=pcdB2s2y4Qc, https://opensource.com/article/20/9/add-sound-python-game
+    - Object Oriented Programming/Token placement: https://www.pygame.org/docs/tut/tom_games4.html, https://stackoverflow.com/questions/64052211/placing-objects-at-random-places-in-pygame
+    - Special thanks to CLPS0950 Staff for general debugging and coding help.
+
     
     
     
