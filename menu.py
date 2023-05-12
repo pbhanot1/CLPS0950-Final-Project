@@ -8,7 +8,7 @@ import gameboard
 pygame.init()
 
 # game window setup: name, background color, animation frame rate, font, UI manager
-pygame.display.set_caption("Dog Park Game")
+pygame.display.set_caption("Dog Park!")
 menu_screen = pygame.display.set_mode((1200,900))
 game = False
 

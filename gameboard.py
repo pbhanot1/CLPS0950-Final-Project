@@ -21,7 +21,8 @@ game = False
 
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
-background = screen.fill((120, 170, 20))
+#background = screen.fill((120, 170, 20))
+background = pygame.image.load('background.png')
 clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200, 900))
@@ -56,7 +57,7 @@ def main():
             # UI manager functions setup
             manager.process_events(event)
         screen.fill((120, 170, 20))
-        pygame.time.delay(10)
+        pygame.time.delay(5)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
             y -= 10
@@ -75,10 +76,14 @@ def main():
             counter = collie.collision(corgi_mask, corgi_posx, corgi_posy, counter)
         corgi_posx = x
         corgi_posy = y
+        screen.blit(background, (0, 0))
         screen.blit(corgi, (x, y))
         husky.husky_drawing(screen)
         poodle.poodle_drawing(screen)
         chow.chow_drawing(screen)
+        golden.golden_drawing(screen)
+        pug.pug_drawing(screen)
+        collie.collie_drawing(screen)
         treat.food_drawing(screen)
         counter = treat.collision(corgi_mask, corgi_posx, corgi_posy,counter)
         counter_text = font.render(f'Treats Collected: {counter}',True,(255,255,255))

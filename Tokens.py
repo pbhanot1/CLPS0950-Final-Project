@@ -44,8 +44,8 @@ class Husky():
     def __init__(self, husky_screen):
         self.image = pygame.image.load("husky.png")
         self.husky_screen = husky_screen
-        self.x = 950
-        self.y = 100
+        self.x = 750
+        self.y = 50
     def husky_drawing(self,win):
         self.husky_screen.blit(self.image, (self.x, self.y))
     def collision(self, corgi_mask, corgi_posx, corgi_posy, counter):
@@ -53,7 +53,7 @@ class Husky():
         husky_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(husky_mask, offset)  # point of intersection
@@ -70,7 +70,7 @@ class Poodle():
     def __init__(self, poodle_screen):
         self.image = pygame.image.load("poodle.png")
         self.poodle_screen = poodle_screen
-        self.x = 600
+        self.x = 500
         self.y = 450
     def poodle_drawing(self,win):
         self.poodle_screen.blit(self.image, (self.x, self.y))
@@ -80,7 +80,7 @@ class Poodle():
         poodle_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) + 20, int(self.y - corgi_posy)+20)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(poodle_mask, offset)  # point of intersection
@@ -97,8 +97,8 @@ class Chow():
     def __init__(self, chow_screen):
         self.image = pygame.image.load("mavi.png")
         self.chow_screen = chow_screen
-        self.x = 300
-        self.y = 800
+        self.x = 190
+        self.y = 700
     def chow_drawing(self,win):
         self.chow_screen.blit(self.image, (self.x, self.y))
 
@@ -106,7 +106,7 @@ class Chow():
         chow_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) - 40, int(self.y - corgi_posy)-40)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(chow_mask, offset)  # point of intersection
@@ -122,8 +122,8 @@ class Golden():
     def __init__(self, golden_screen):
         self.image = pygame.image.load("golden.png")
         self.golden_screen = golden_screen
-        self.x = 400
-        self.y = 300
+        self.x = 350
+        self.y = 200
     def golden_drawing(self,win):
         self.golden_screen.blit(self.image, (self.x, self.y))
 
@@ -132,7 +132,7 @@ class Golden():
         golden_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) - 40, int(self.y - corgi_posy)-40)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(golden_mask, offset)  # point of intersection
@@ -150,7 +150,7 @@ class Pug():
         self.image = pygame.image.load("pug.png")
         self.pug_screen = pug_screen
         self.x = 800
-        self.y = 500
+        self.y = 650
     def pug_drawing(self,win):
         self.pug_screen.blit(self.image, (self.x, self.y))
 
@@ -159,7 +159,7 @@ class Pug():
         pug_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) - 40, int(self.y - corgi_posy)-40)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(pug_mask, offset)  # point of intersection
@@ -176,8 +176,8 @@ class Collie():
     def __init__(self, collie_screen):
         self.image = pygame.image.load("collie.png")
         self.collie_screen = collie_screen
-        self.x = 750
-        self.y = 550
+        self.x = 0
+        self.y = 450
     def collie_drawing(self,win):
         self.collie_screen.blit(self.image, (self.x, self.y))
 
@@ -186,7 +186,7 @@ class Collie():
         collie_mask = pygame.mask.from_surface(self.image)
 
         # checks the offset position of the treat relative to the dog
-        offset = (int(self.x - corgi_posx) - 40, int(self.y - corgi_posy)-40)
+        offset = (int(self.x - corgi_posx) - 50, int(self.y - corgi_posy)+50)
 
         # looks for a point of intersection between the treat and the dog
         poi = corgi_mask.overlap(collie_mask, offset)  # point of intersection
