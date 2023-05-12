@@ -23,6 +23,7 @@ All relevent input files are included in repository (ie. character images, sound
     - from pygame import mixer
 
 # Work Timelog: https://docs.google.com/spreadsheets/d/1QwlTnTw7et1oqVvzcRccjEKFMuBTa5N2ZQoQcbAVFrs/edit?usp=sharing
+# Project Presentation: https://docs.google.com/presentation/d/1VQFWeqGcWRmpjCHftHlRXYx681kt73hGTC7nw6n7WsY/edit#slide=id.p
 
     
     
