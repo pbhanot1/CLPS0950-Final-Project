@@ -1,5 +1,7 @@
+# tutorials used to write code are linked in the ReadME
+
 # import libraries
-import pygame, sys
+import pygame
 import pygame_menu
 import pygame_gui
 import gameboard
@@ -8,18 +10,18 @@ from pygame import mixer
 #initialize pygame
 pygame.init()
 
+#background music
 mixer.music.load('background.wav')
-mixer.music.play()
+mixer.music.play(-1)
 
 # game window setup: name, background color, animation frame rate, font, UI manager
 pygame.display.set_caption("Dog Park!")
 menu_screen = pygame.display.set_mode((1200,900))
-game = False
 
 # create Menu function
 def create_menu():
     def start_game():
-        pygame.mixer.music.pause()
+        pygame.mixer.music.pause() # pauses background music because there are other sound effects in game
         gameboard.main()
 
     def back_button():

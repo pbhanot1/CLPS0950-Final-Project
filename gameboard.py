@@ -1,9 +1,5 @@
-# Snake Game Final Project - gameboard
-# edited 04.26.23 by Priya Bhanot
-# pygame tutorials used: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html, https://pyga.me/docs/
-
 # import libraries
-import pygame, sys
+import pygame
 from pygame import mixer
 import pygame_menu
 import pygame_gui
@@ -20,7 +16,6 @@ menu_screen = pygame.display.set_mode((1200,900))
 # gameboard initialization and setup
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
-#background = screen.fill((120, 170, 20))
 background = pygame.image.load('background.png')
 clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
@@ -29,6 +24,7 @@ manager = pygame_gui.UIManager((1200, 900))
 
 #characters
 corgi = pygame.image.load('corgi.png')
+# the characters below are coded as objects and each have their own class in the Tokens.py file
 treat = Tokens.Food(screen)
 husky = Tokens.Husky(screen)
 poodle = Tokens.Poodle(screen)
@@ -37,17 +33,23 @@ golden = Tokens.Golden(screen)
 pug = Tokens.Pug(screen)
 collie = Tokens.Collie(screen)
 
-# create variable to control the main loop
+# main game loop
 def main():
+    # variable to run loop
     running = True
+
+    # initialize variables for corgi position and movement
     x= 100
     y= 100
     global corgi_posx
     global corgi_posy
 
+    # initialize treat counter
     counter = 0
 
+    # creates corgi mask for collision functions in Tokens.py
     corgi_mask = pygame.mask.from_surface(corgi)
+
     # main game function
     while running:
         #UI timer
@@ -60,6 +62,7 @@ def main():
             manager.process_events(event)
         screen.fill((120, 170, 20))
         pygame.time.delay(5)
+        # corgi movement
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
             y -= 10
@@ -70,8 +73,10 @@ def main():
         if keys[pygame.K_RIGHT]:
             x += 10
         if keys[pygame.K_SPACE]:
+            # bark sound when space bar is pressed
             bark_sound = mixer.Sound('bark.wav')
             bark_sound.play()
+            # calls collision code in Tokens.py for giving treats to dog and adjusting counter
             counter = husky.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = poodle.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = chow.collision(corgi_mask, corgi_posx, corgi_posy, counter)
@@ -81,6 +86,7 @@ def main():
         corgi_posx = x
         corgi_posy = y
         screen.blit(background, (0, 0))
+        # draws characters and treats on the screen after arrow keys are pressed
         screen.blit(corgi, (x, y))
         husky.husky_drawing(screen)
         poodle.poodle_drawing(screen)
@@ -89,6 +95,7 @@ def main():
         pug.pug_drawing(screen)
         collie.collie_drawing(screen)
         treat.food_drawing(screen)
+        # calls treat collision code in Tokens.py for treat collection and displays counter
         counter = treat.collision(corgi_mask, corgi_posx, corgi_posy,counter)
         counter_text = font.render(f'Treats Collected: {counter}',True,(255,255,255))
         screen.blit(counter_text,(10,10))
