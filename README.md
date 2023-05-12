@@ -2,6 +2,7 @@
 
 This repository provides the code for an interactive Dog Park Game featuring a menu display and gameboard play screen. 
 All relevent input files are included in repository (ie. character images, sound clips, etc.)
+Necessary toolboxes are detailed below.
 
 # Game objective: make as many friends as possible at the dog park!
 # Rules:
