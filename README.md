@@ -26,7 +26,7 @@ Necessary toolboxes are detailed below.
 # Work Timelog: https://docs.google.com/spreadsheets/d/1QwlTnTw7et1oqVvzcRccjEKFMuBTa5N2ZQoQcbAVFrs/edit?usp=sharing
 # Project Presentation: https://docs.google.com/presentation/d/1VQFWeqGcWRmpjCHftHlRXYx681kt73hGTC7nw6n7WsY/edit#slide=id.p
 
-# Tutorials Used To Write Code:
+# Tutorials Used To Develop Code:
     - General intro to pygame/pygame_gui: https://dr0id.bitbucket.io/legacy/pygame_tutorials.html, https://pyga.me/docs/, https://pygame-gui.readthedocs.io/en/latest/#:~:text=Pygame%20GUI%20is%20a%20module,Pygame%202%20and%20Python%203
     - Menu display (using pygame_menu): https://pygame-menu.readthedocs.io/en/4.4.2/, https://www.geeksforgeeks.org/creating-start-menu-in-pygame/#
     - Treat Counter: https://opensource.com/article/20/1/add-scorekeeping-your-python-game, https://www.makeuseof.com/pygame-game-scores-displaying-updating/ 
