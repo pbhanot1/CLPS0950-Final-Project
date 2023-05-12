@@ -4,6 +4,7 @@
 
 # import libraries
 import pygame, sys
+from pygame import mixer
 import pygame_menu
 import pygame_gui
 import Tokens
@@ -15,10 +16,8 @@ pygame.init()
 # game window setup: name, background color, animation frame rate, font, UI manager
 pygame.display.set_caption("Dog Park Game")
 menu_screen = pygame.display.set_mode((1200,900))
-game = False
 
 # gameboard initialization and setup
-
 pygame.init()
 screen = pygame.display.set_mode((1200, 900))
 #background = screen.fill((120, 170, 20))
@@ -26,6 +25,8 @@ background = pygame.image.load('background.png')
 clock = pygame.time.Clock()
 font = pygame.font.Font('GloriaHallelujah-Regular.ttf', 35)
 manager = pygame_gui.UIManager((1200, 900))
+
+
 #characters
 corgi = pygame.image.load('corgi.png')
 treat = Tokens.Food(screen)
@@ -45,6 +46,7 @@ def main():
     global corgi_posy
 
     counter = 0
+
     corgi_mask = pygame.mask.from_surface(corgi)
     # main game function
     while running:
@@ -68,6 +70,8 @@ def main():
         if keys[pygame.K_RIGHT]:
             x += 10
         if keys[pygame.K_SPACE]:
+            bark_sound = mixer.Sound('bark.wav')
+            bark_sound.play()
             counter = husky.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = poodle.collision(corgi_mask, corgi_posx, corgi_posy, counter)
             counter = chow.collision(corgi_mask, corgi_posx, corgi_posy, counter)

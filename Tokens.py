@@ -5,6 +5,7 @@ import random
 import gameboard
 import time
 import pygame_gui
+from pygame import mixer
 
 #initialize screen
 pygame.init()
@@ -35,6 +36,8 @@ class Food(object):
             self.x = random.randint(100,1000)
             self.y = random.randint(100,800)
             self.food_screen.blit(self.image, (self.x, self.y))
+            chew_sound = mixer.Sound('chewsound.wav')
+            chew_sound.play()
             counter += 1
             return counter
         else:
@@ -62,6 +65,9 @@ class Husky():
             if counter >= 3:
                 counter = counter - 3
                 self.image = pygame.image.load('huskythanks.png')
+                wahoo_sound = mixer.Sound('wahoo.ogg')
+                pygame.time.delay(300)
+                wahoo_sound.play()
             return counter
         else:
             return counter
@@ -89,6 +95,9 @@ class Poodle():
             if counter >= 10:
                 counter = counter - 10
                 self.image = pygame.image.load('poodlethanks.png')
+                harp_sound = mixer.Sound('harp.mp3')
+                pygame.time.delay(300)
+                harp_sound.play()
             return counter
         else:
             return counter
@@ -115,6 +124,9 @@ class Chow():
             if counter >= 5:
                 counter = counter - 5
                 self.image = pygame.image.load('mavithanks.png')
+                howl_sound = mixer.Sound('howl.wav')
+                pygame.time.delay(300)
+                howl_sound.play()
             return counter
         else:
             return counter
@@ -141,6 +153,9 @@ class Golden():
             if counter >= 4:
                 counter = counter - 4
                 self.image = pygame.image.load('goldenthanks.png')
+                golden_sound = mixer.Sound('goldensound.mp3')
+                pygame.time.delay(300)
+                golden_sound.play()
             return counter
         else:
             return counter
@@ -168,6 +183,9 @@ class Pug():
             if counter >= 3:
                 counter = counter - 3
                 self.image = pygame.image.load('pugthanks.png')
+                pug_sound = mixer.Sound('pugsound.mp3')
+                pygame.time.delay(300)
+                pug_sound.play()
             return counter
         else:
             return counter
@@ -195,6 +213,9 @@ class Collie():
             if counter >= 2:
                 counter = counter - 2
                 self.image = pygame.image.load('colliethanks.png')
+                cricket_sound = mixer.Sound('cricketchirp.mp3')
+                pygame.time.delay(300)
+                cricket_sound.play()
             return counter
         else:
             return counter

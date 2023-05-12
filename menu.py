@@ -3,9 +3,13 @@ import pygame, sys
 import pygame_menu
 import pygame_gui
 import gameboard
+from pygame import mixer
 
 #initialize pygame
 pygame.init()
+
+mixer.music.load('background.wav')
+mixer.music.play()
 
 # game window setup: name, background color, animation frame rate, font, UI manager
 pygame.display.set_caption("Dog Park!")
@@ -15,6 +19,7 @@ game = False
 # create Menu function
 def create_menu():
     def start_game():
+        pygame.mixer.music.pause()
         gameboard.main()
 
     def back_button():
